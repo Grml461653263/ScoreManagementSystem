@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.my.score.mapper.ScoreMapper">
+    <select id="getScore" parameterType="map" resultType="map">
+      select st.name,st.number id,cl.name letter ,sc.score source,sc.semester,sc.s_id sid,sp.name spe,cl.id cid,sc.id ssid
+       from student st
+       left JOIN score sc on sc.student_id = st.id
+       left JOIN class cl on cl.id = st.cid
+       left join specialty sp on sc.s_id =  sp.id
+       where 1=1
+       <if test="cid != null">
+       <if test="cid ==1">
+           and sc.c_id in (1,2)
+       </if>
+           <if test="cid ==2">
+               and sc.c_id = '3'
+           </if>
+           <if test="cid ==3">
+               and sc.c_id in(4,5)
+           </if>
+           <if test="cid ==5">
+               and sc.c_id in (6,7)
+           </if>
+           <if test="cid ==6">
+               and sc.c_id = '8'
+           </if>
+       </if>
+        <if test="key != null and key != ''">
+            and st.name  like concat('%',#{key},'%')
+        </if>
+
+        <if test="sortBy != null and sortBy=='id'">
+        order by st.id
+            <if test="desc != null and desc == 1">
+                desc
+            </if>
+            <if test="desc != null and desc == 0">
+                asc
+            </if>
+
+    </if>
+        <if test="sortBy != null and sortBy=='source'">
+            order by sc.score
+            <if test="desc != null and desc == 1">
+                desc
+            </if>
+            <if test="desc != null and desc == 0">
+                asc
+            </if>
+
+        </if>
+    </select>
+    <select id="getScore1" parameterType="map" resultType="map">
+        select st.name,st.number id,cl.name letter ,sc.score source,sc.semester,sc.s_id sid,sp.name spe,cl.id cid,sc.id ssid
+        from student st
+        left JOIN score sc on sc.student_id = st.id
+        left JOIN class cl on cl.id = st.cid
+        left join specialty sp on sc.s_id =  sp.id
+        where 1=1
+        <if test="cid != null">
+            <if test="cid ==1">
+                and sc.c_id in (1,2)
+            </if>
+            <if test="cid ==2">
+                and sc.c_id = '3'
+            </if>
+            <if test="cid ==3">
+                and sc.c_id in(4,5)
+            </if>
+            <if test="cid ==5">
+                and sc.c_id in (6,7)
+            </if>
+            <if test="cid ==6">
+                and sc.c_id = '8'
+            </if>
+        </if>
+        <if test="key != null and key != '' ">
+            and cl.name like concat('%',#{key},'%')
+        </if>
+
+        <if test="sortBy != null and sortBy=='id'">
+            order by st.id
+            <if test="desc != null and desc == 1">
+                desc
+            </if>
+            <if test="desc != null and desc == 0">
+                asc
+            </if>
+
+        </if>
+        <if test="sortBy != null and sortBy=='source'">
+            order by sc.score
+            <if test="desc != null and desc == 1">
+                desc
+            </if>
+            <if test="desc != null and desc == 0">
+                asc
+            </if>
+
+        </if>
+    </select>
+
+    <update id="update1" parameterType="map">
+        update score set score = #{source} where id = #{id}
+    </update>
+
+    <select id="id" parameterType="map" resultType="map">
+        select * from user where userName = #{name}//leiyuhua zhoujue
+        select * from user where userName = '雷玉华'
+        map.size() = 0 sieze!=0 //V 此用户已存在
+    </select>
+</mapper>

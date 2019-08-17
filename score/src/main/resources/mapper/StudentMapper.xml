@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.my.score.mapper.StudentMapper">
+    <select id="selectByclass" parameterType="map" resultType="map">
+        select s.number
+         from student  s left join class  c on c.id = s.cid
+         where 1=1
+         <if test="name != null and name != ''">
+           and  s.name = #{name}
+         </if>
+         <if test="letter != null">
+             and c.name = #{letter}
+         </if>
+
+    </select>
+
+
+    <select id="getStudentInfo" parameterType="map" resultType="map">
+        select cl.name letter,stu.id,stu.sname university,stu.phone,stu.email,stu.score ,stu.sex,stu.name from student stu
+        left join class  cl on stu.cid = cl.id
+        where 1=1
+        <if test="key != null and key != '' ">
+           or stu.name like concat('%',#{key},'%')
+        </if>
+        <if test="key != null and key != '' ">
+          or  cl.name like concat('%',#{key},'%')
+        </if>
+        <if test="sortBy != null and sortBy=='id'">
+            order by stu.id
+            <if test="desc != null and desc == 1">
+                desc
+            </if>
+            <if test="desc != null and desc == 0">
+                asc
+            </if>
+        </if>
+    </select>
+</mapper>
