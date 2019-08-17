@@ -1,0 +1,8 @@
+INSERT INTO `class`(`id`, `name`, `grade`, `sid`, `cid`, `tid`, `create_time`, `up_time`, `deleted`, `remarks`) VALUES (1, '计算机1501', '15', 1, 1, 1, '2019-03-03 19:59:07', '2019-03-03 19:59:09', 1, NULL);
+INSERT INTO `class`(`id`, `name`, `grade`, `sid`, `cid`, `tid`, `create_time`, `up_time`, `deleted`, `remarks`) VALUES (2, '计算机1502', '15', 2, 1, 2, '2019-03-03 20:00:40', '2019-03-03 20:00:42', 1, NULL);
+INSERT INTO `class`(`id`, `name`, `grade`, `sid`, `cid`, `tid`, `create_time`, `up_time`, `deleted`, `remarks`) VALUES (3, '计算机网络', '15', 2, 1, 2, '2019-03-03 20:01:21', '2019-03-03 20:01:23', 1, NULL);
+INSERT INTO `class`(`id`, `name`, `grade`, `sid`, `cid`, `tid`, `create_time`, `up_time`, `deleted`, `remarks`) VALUES (4, '信工1501', '15', 3, 4, 3, '2019-03-03 20:06:31', '2019-03-03 20:06:33', 1, NULL);
+INSERT INTO `class`(`id`, `name`, `grade`, `sid`, `cid`, `tid`, `create_time`, `up_time`, `deleted`, `remarks`) VALUES (5, '信工1502', '15', 3, 1, 4, '2019-03-03 20:06:58', '2019-03-03 20:07:00', 1, NULL);
+INSERT INTO `class`(`id`, `name`, `grade`, `sid`, `cid`, `tid`, `create_time`, `up_time`, `deleted`, `remarks`) VALUES (6, '会计1501', '15', 5, 3, 5, '2019-03-03 20:07:48', '2019-03-03 20:07:50', 1, NULL);
+INSERT INTO `class`(`id`, `name`, `grade`, `sid`, `cid`, `tid`, `create_time`, `up_time`, `deleted`, `remarks`) VALUES (7, '会计1502', '15', 5, 3, 6, '2019-03-03 20:10:16', '2019-03-03 20:10:18', 1, NULL);
+INSERT INTO `class`(`id`, `name`, `grade`, `sid`, `cid`, `tid`, `create_time`, `up_time`, `deleted`, `remarks`) VALUES (8, '服装1501', '15', 4, 2, 7, '2019-03-03 20:13:15', '2019-03-03 20:13:18', 1, NULL);
