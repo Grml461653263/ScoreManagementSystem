@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.my.score.mapper.CetMapper">
+    <select id="getCollegeInfo" parameterType="map" resultType="map">
+        select id cid, number id,name,class_name letter,cource source ,university from cet where
+         cte = #{cid}
+         <if test="key != null and key != ''">
+           and  name like concat ('%',#{key},'%')
+         </if>
+        <if test="sortBy != null and sortBy=='id'">
+            order by number
+            <if test="desc != null and desc == 1">
+                desc
+            </if>
+            <if test="desc != null and desc == 0">
+                asc
+            </if>
+
+        </if>
+        <if test="sortBy != null and sortBy=='source'">
+            order by cource
+            <if test="desc != null and desc == 1">
+                desc
+            </if>
+            <if test="desc != null and desc == 0">
+                asc
+            </if>
+
+        </if>
+    </select>
+
+</mapper>
